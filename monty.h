@@ -1,38 +1,18 @@
-#ifndef PROJECT_H
-#define PROJECT_H
+#ifndef MONTY_H
+#define MONTY_H
 
-#include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
-
-#define INSTRUCTIONS              \
-
-{	\
-	{"push", push},       \
-	{"pall", pall},   \
-	{"pint", pint},   \
-	{"pop", pop},     \
-	{"swap", swap},   \
-	{"nop", nop},     \
-	{"div", _div},    \
-	{"mul", _mul},    \
-	{"add", _add},    \
-	{"sub", _sub},    \
-	{"mod", mod},     \
-	{"pchar", pchar}, \
-	{"pstr", pstr},   \
-	{"rotl", rotl},   \
-	{"rotr", rotr},   \
-	{                     \
-		NULL, NULL      \
-	}                     \
-
-}
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
- *
  * @next: points to the next element of the stack (or queue)
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
@@ -45,8 +25,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-
-/**
+/*
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
@@ -103,4 +82,4 @@ void opcode(stack_t **stack, char *str, unsigned int line_cnt);
 int is_digit(char *string);
 int isnumber(char *str);
 
-#endif /* PROJECT_H */
+#endif /* MONTY_H */
